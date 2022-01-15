@@ -6,10 +6,7 @@ namespace TrainingMode
     {
         static void Main(string[] args)
         {
-            Random rand = new Random();
-            Console.WriteLine($"Hello {rand.Next()}!");
-            Console.ReadKey();
-            Class1.Elevator();
+            HighLowCard.method();
         }
     }
 }

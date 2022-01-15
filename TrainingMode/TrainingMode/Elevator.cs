@@ -4,9 +4,9 @@ using System.Text;
 
 namespace TrainingMode
 {
-    class Class1
+    class Elevator
     {
-        public static void Elevator()
+        public static void method()
         {
             int N = Int32.Parse(Console.ReadLine());
             int[] Array = new int[N];
