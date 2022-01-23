@@ -6,7 +6,7 @@ namespace TrainingMode
     {
         static void Main(string[] args)
         {
-            HighLowCard.method();
+
         }
     }
 }
