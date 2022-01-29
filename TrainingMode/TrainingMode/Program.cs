@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using HtmlAgilityPack;
 
 namespace TrainingMode
 {
@@ -6,7 +9,9 @@ namespace TrainingMode
     {
         static void Main(string[] args)
         {
-
+            HtmlAnalysis.GetAllImages();
+            HtmlAnalysis.GetText();
         }
     }
+
 }
