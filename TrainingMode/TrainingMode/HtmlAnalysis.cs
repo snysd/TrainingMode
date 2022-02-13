@@ -7,25 +7,30 @@ namespace TrainingMode
 {
     public class HtmlAnalysis
     {
-        public static void GetText()
+        public static string GetText(string url)
         {
             WebClient wc = new WebClient();
             wc.Encoding = System.Text.Encoding.UTF8;
-            string htmlStr = wc.DownloadString("https://www.amazon.co.jp/");
+            string htmlStr = wc.DownloadString($"{url}");
             if (htmlStr != null)
             {
                 var htmlDoc = new HtmlDocument();
                 htmlDoc.LoadHtml(htmlStr);
-                HtmlNodeCollection nodes = htmlDoc.DocumentNode.SelectNodes("//*[contains(text(), 'コロナ')]");
+                HtmlNodeCollection nodes = htmlDoc.DocumentNode.SelectNodes("//*[contains(@class,'')]");
+
                 // "//p/a[contains(text(), 'コロナ')]"
                 // "//[contains(@class,'topics')]"
                 // "//*[@id='newsrelease']/div/div/div/p"
                 // "//*[contains(@class,'topics')]"
+
+                if (nodes == null) return "no item";
+                htmlStr = "";
                 foreach (HtmlNode node in nodes)
                 {
-                    Console.WriteLine(node.InnerText);
+                    htmlStr += node.InnerText;
                 }
             }
+            return htmlStr;
         }
         public static void GetAllImages()
         {

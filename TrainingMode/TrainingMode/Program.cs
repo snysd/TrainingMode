@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Net;
 using HtmlAgilityPack;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TrainingMode
 {
@@ -9,8 +13,8 @@ namespace TrainingMode
     {
         static void Main(string[] args)
         {
-            HtmlAnalysis.GetAllImages();
-            HtmlAnalysis.GetText();
+            string str = HtmlAnalysis.GetText(Console.ReadLine());
+            TextFileCreate.Create(str);
         }
     }
 
